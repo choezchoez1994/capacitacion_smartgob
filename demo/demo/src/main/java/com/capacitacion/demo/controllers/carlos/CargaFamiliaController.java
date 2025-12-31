@@ -1,9 +1,7 @@
-package com.capacitacion.demo.controllers;
+package com.capacitacion.demo.controllers.carlos;
 
-import com.capacitacion.demo.dto.CargaFamiliarDto;
-import com.capacitacion.demo.dto.PersonaDto;
-import com.capacitacion.demo.services.CargaFamiliarService;
-import com.capacitacion.demo.services.PersonaService;
+import com.capacitacion.demo.dto.carlos.CargaFamiliarDto;
+import com.capacitacion.demo.services.carlos.CargaFamiliarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

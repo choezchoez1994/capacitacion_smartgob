@@ -1,4 +1,4 @@
-package com.capacitacion.demo.dto;
+package com.capacitacion.demo.dto.carlos;
 import com.capacitacion.demo.entity.Persona;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

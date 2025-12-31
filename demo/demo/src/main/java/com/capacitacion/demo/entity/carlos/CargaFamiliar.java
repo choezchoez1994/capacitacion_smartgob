@@ -1,5 +1,6 @@
-package com.capacitacion.demo.entity;
+package com.capacitacion.demo.entity.carlos;
 
+import com.capacitacion.demo.entity.Persona;
 import jakarta.persistence.*;
 import lombok.*;
 import java.time.LocalDate;

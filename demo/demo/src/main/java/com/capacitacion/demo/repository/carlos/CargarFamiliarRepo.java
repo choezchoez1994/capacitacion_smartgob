@@ -1,6 +1,6 @@
-package com.capacitacion.demo.repository;
+package com.capacitacion.demo.repository.carlos;
 
-import com.capacitacion.demo.entity.CargaFamiliar;
+import com.capacitacion.demo.entity.carlos.CargaFamiliar;
 import com.capacitacion.demo.entity.Persona;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

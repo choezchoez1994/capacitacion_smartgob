@@ -1,10 +1,9 @@
-package com.capacitacion.demo.services;
+package com.capacitacion.demo.services.carlos;
 
-import com.capacitacion.demo.dto.CargaFamiliarDto;
-import com.capacitacion.demo.dto.PersonaDto;
-import com.capacitacion.demo.entity.CargaFamiliar;
+import com.capacitacion.demo.dto.carlos.CargaFamiliarDto;
+import com.capacitacion.demo.entity.carlos.CargaFamiliar;
 import com.capacitacion.demo.entity.Persona;
-import com.capacitacion.demo.repository.CargarFamiliarRepo;
+import com.capacitacion.demo.repository.carlos.CargarFamiliarRepo;
 import com.capacitacion.demo.repository.PersonaRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
