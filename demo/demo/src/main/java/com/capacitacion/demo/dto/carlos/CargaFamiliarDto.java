@@ -1,4 +1,5 @@
 package com.capacitacion.demo.dto.carlos;
+import com.capacitacion.demo.dto.PersonaDto;
 import com.capacitacion.demo.entity.Persona;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -13,8 +14,8 @@ import java.time.LocalDate;
 @NoArgsConstructor
 public class CargaFamiliarDto {
     private Long idCarga;
-    private Persona empleado;
-    private Persona carga;
+    private PersonaDto empleado;
+    private PersonaDto carga;
     private LocalDate fechaRegistro;
     private String estado;
 
