@@ -6,12 +6,11 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import javax.swing.text.html.Option;
 import java.util.List;
 
 @Repository
 public interface PersonaRepo extends JpaRepository<Persona, Long> {
-
-    Persona findPersonaByCedula(String cedula);
 
     @Query(value = "SELECT DATE_PART('year', AGE(fecha_nacimineto)) FROM prueba.persona WHERE cedula = :cedula",
             nativeQuery = true)
@@ -19,4 +18,5 @@ public interface PersonaRepo extends JpaRepository<Persona, Long> {
 
     List<Persona> findAllByApellido(String apellido);
 
+    Persona findPersonaByCedula(String cedula);
 }

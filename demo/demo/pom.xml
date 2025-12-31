@@ -217,11 +217,6 @@
 			<artifactId>batik-bridge</artifactId>
 			<version>1.14</version>
 		</dependency>
-        <dependency>
-            <groupId>com.capacitacion</groupId>
-            <artifactId>demo</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
 
     </dependencies>
 

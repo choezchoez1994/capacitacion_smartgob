@@ -14,13 +14,20 @@ public class PersonaController {
     @Autowired
     private PersonaService personaService;
 
-    @GetMapping("/Hola")
-    public String saludar() {
-        return "Hola";
-    }
-
     @PostMapping("/save")
     public ResponseEntity<?> guardar(@RequestBody PersonaDto personaDto) {
         return new ResponseEntity<>(personaService.save(personaDto), HttpStatus.CREATED);
+    }
+
+    @GetMapping("/list")
+    public ResponseEntity<?> listar() {
+        return new ResponseEntity<>(personaService.personasAll(), HttpStatus.OK);
+    }
+
+    @GetMapping("cedula/{cedula}")
+    public ResponseEntity<?> listar(@PathVariable String cedula) {
+        PersonaDto personaDto = personaService.findPersonaByCedula(cedula);
+        if (personaDto == null) return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(personaDto, HttpStatus.OK);
     }
 }
