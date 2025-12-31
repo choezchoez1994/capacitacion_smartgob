@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: demo
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/capacitacion
+    username: postgres
+    password: admin
+  logging:
+    level:
+      root: DEBUG
+      net.sf.jasperreports.extensions: DEBUG
+      net.sf.jasperreports.engine.fonts: DEBUG
+server:
+  port: 8088
