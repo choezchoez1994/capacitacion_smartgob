@@ -1,5 +1,6 @@
 package com.capacitacion.demo.controllers.carlos;
 
+import com.capacitacion.demo.dto.PersonaDto;
 import com.capacitacion.demo.dto.carlos.CargaFamiliarDto;
 import com.capacitacion.demo.services.carlos.CargaFamiliarService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,5 +29,16 @@ public class CargaFamiliaController {
     public ResponseEntity<String> eliminar(@RequestBody CargaFamiliarDto cargaFamiliarDto) {
         String mensaje = cargaFamiliarService.delete(cargaFamiliarDto.getIdCarga());
         return ResponseEntity.status(HttpStatus.CREATED).body(mensaje);
+    }
+    @GetMapping("/list")
+    public ResponseEntity<?> listar() {
+        return new ResponseEntity<>(cargaFamiliarService.cargasAll(), HttpStatus.OK);
+    }
+
+    @GetMapping("id-carga/{idCarga}")
+    public ResponseEntity<?> listar(@PathVariable Long idCarga) {
+        CargaFamiliarDto cargaFamiliarDto = cargaFamiliarService.findCargaFamiliarById(idCarga);
+        if (cargaFamiliarDto == null) return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(cargaFamiliarDto, HttpStatus.OK);
     }
 }

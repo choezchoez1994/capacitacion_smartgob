@@ -14,4 +14,5 @@ public interface CargarFamiliarRepo extends JpaRepository<CargaFamiliar, Long> {
     boolean existsByEmpleadoAndCarga(Persona empleado, Persona carga);
 
     Optional<CargaFamiliar> findByEmpleadoAndCarga(Persona empleado, Persona carga);
+
 }
