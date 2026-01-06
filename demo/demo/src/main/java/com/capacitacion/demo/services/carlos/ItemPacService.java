@@ -33,10 +33,11 @@ public class ItemPacService {
 
     public String save(ItemPacDto itemPacDto) {
         // Valida que el código no exista
-        if (!itemPacDto.getPeriodo().equals(2026)) {
+        int anio = java.time.LocalDate.now().getYear();
+        if (!itemPacDto.getPeriodo().equals(anio)) {
             return "Error: No se puede ingresar periodos diferentes al actual: " + itemPacDto.getPeriodo();
         }
-        if (itemPacDto.getObjetoContratacion() == null) {
+        if (itemPacDto.getObjetoContratacion() == null || itemPacDto.getObjetoContratacion().isEmpty()) {
             return "Error: Ingrese una descripción(Objeto Contratacion) al PAC.";
         }
         if (itemPacDto.getTipoProcedimientoId() == null) {
@@ -119,7 +120,7 @@ public class ItemPacService {
             }
         }
     //actualizar campos
-        if (itemPacDto.getObjetoContratacion() != null) {
+        if (itemPacDto.getObjetoContratacion() != null || itemPacDto.getObjetoContratacion().isEmpty()) {
             existeItemPac.setObjetoContratacion(itemPacDto.getObjetoContratacion());
         }
         if (itemPacDto.getPeriodo() != null) {
@@ -175,6 +176,10 @@ public class ItemPacService {
         }
     }
 
+    public List<ItemPacDto> getPeriodoYEstado(int periodo, String estado) {
+        return itemPacMapper.toDtos(itemPacRepo.obtenerPorPeriodoYEstado(periodo, estado));
+    }
+
     public String aprobarPorAnio(Integer anio) {
         // Validar que el año
         if (anio == null) {
@@ -188,22 +193,28 @@ public class ItemPacService {
         if (itemsPac.isEmpty()) {
             return "No se encontraron items PAC para el año " + anio;
         }
-
-        // cuántos se aprobaron
         int aprobados = 0;
-        int noAprobables = 0;
+        int registrado = 0;
 
-        // Cambiar el estado de todos los itemPacs a "APROBADO"
-        for (ItemPac itemPac : itemsPac) {
+        List<ItemPac> itemsPacRegistrado = itemPacRepo.findByEstado("REGISTRADO");
+        for (ItemPac itemPac : itemsPacRegistrado) {
             if ("REGISTRADO".equals(itemPac.getEstado())) {
                 itemPac.setEstado("APROBADO");
                 itemPacRepo.save(itemPac);
+            }
+        }
+        List<ItemPac> itemsPacAprobado = itemPacRepo.findByEstado("APROBADO");
+        for (ItemPac itemPac : itemsPacAprobado) {
+            if(itemPac.getEstado().equals("APROBADO")) {
                 aprobados++;
-            } else {
-                noAprobables++;
+            }
+            if (itemPac.getObjetoContratacion().isEmpty() || itemPac.getObjetoContratacion() == null) {
+                itemPac.setEstado("REGISTRADO");
+                itemPacRepo.save(itemPac);
+                registrado++;
             }
         }
 
-        return "Se aprobaron: " + aprobados + " . No aprobados: " + noAprobables+". En el año: "+anio;
+        return "Items Aprobados: " +aprobados  + " . Se cambio a REGISTRADOS: " + registrado+". En el año: "+anio;
     }
 }

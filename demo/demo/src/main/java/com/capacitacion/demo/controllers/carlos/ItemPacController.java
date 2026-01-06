@@ -9,6 +9,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/compras-publicas/itemPac")
 public class ItemPacController {
@@ -35,6 +37,13 @@ public class ItemPacController {
     @GetMapping("id-pac/{idPac}")
     public ResponseEntity<?> listar(@PathVariable Long idPac) {
         ItemPacDto itemPacDto = itemPacService.findItemPacById(idPac);
+        if (itemPacDto == null) return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(itemPacDto, HttpStatus.OK);
+    }
+
+    @GetMapping("periodo/{periodo}/estado/{estado}")
+    public ResponseEntity<?> listar(@PathVariable int periodo,@PathVariable String estado) {
+        List<ItemPacDto> itemPacDto = itemPacService.getPeriodoYEstado(periodo,estado);
         if (itemPacDto == null) return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         return new ResponseEntity<>(itemPacDto, HttpStatus.OK);
     }
