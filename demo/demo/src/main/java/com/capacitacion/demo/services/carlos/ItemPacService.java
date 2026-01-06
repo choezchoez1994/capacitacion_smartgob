@@ -196,25 +196,33 @@ public class ItemPacService {
         int aprobados = 0;
         int registrado = 0;
 
-        List<ItemPac> itemsPacRegistrado = itemPacRepo.findByEstado("REGISTRADO");
-        for (ItemPac itemPac : itemsPacRegistrado) {
-            if ("REGISTRADO".equals(itemPac.getEstado())) {
-                itemPac.setEstado("APROBADO");
-                itemPacRepo.save(itemPac);
-            }
-        }
-        List<ItemPac> itemsPacAprobado = itemPacRepo.findByEstado("APROBADO");
-        for (ItemPac itemPac : itemsPacAprobado) {
-            if(itemPac.getEstado().equals("APROBADO")) {
-                aprobados++;
-            }
-            if (itemPac.getObjetoContratacion().isEmpty() || itemPac.getObjetoContratacion() == null) {
-                itemPac.setEstado("REGISTRADO");
-                itemPacRepo.save(itemPac);
-                registrado++;
+        for (ItemPac itemPac : itemsPac) {
+            String estadoActual = itemPac.getEstado();
+            String objetoContratacion = itemPac.getObjetoContratacion();
+
+            boolean objetoVacio = objetoContratacion == null ||
+                    objetoContratacion.trim().isEmpty() ||
+                    objetoContratacion.isBlank();
+
+            if ("APROBADO".equals(estadoActual)) {
+                if (objetoVacio) {
+                    itemPac.setEstado("REGISTRADO");
+                    itemPacRepo.save(itemPac);
+                    registrado++;
+                } else {
+                    aprobados++;
+                }
+            } else if ("REGISTRADO".equals(estadoActual)) {
+                if (!objetoVacio) {
+                    itemPac.setEstado("APROBADO");
+                    itemPacRepo.save(itemPac);
+                    aprobados++;
+                }
             }
         }
 
-        return "Items Aprobados: " +aprobados  + " . Se cambio a REGISTRADOS: " + registrado+". En el año: "+anio;
+        return "Items Aprobados: " + aprobados +
+                " . Se cambió a REGISTRADOS: " + registrado +
+                ". En el año: " + anio;
     }
 }

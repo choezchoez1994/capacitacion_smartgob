@@ -5,20 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d5dbfe51-c925-4312-9a25-2a02551c9f8c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/demo.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/capacitacion/demo/controllers/carlos/ItemPacController.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/capacitacion/demo/controllers/carlos/ItemPacController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/capacitacion/demo/repository/carlos/ItemPacRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/capacitacion/demo/repository/carlos/ItemPacRepo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/capacitacion/demo/services/carlos/ItemPacService.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/capacitacion/demo/services/carlos/ItemPacService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/capacitacion/demo/mapper/CatalogoContratacionMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/capacitacion/demo/mapper/CatalogoContratacionMapperImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/capacitacion/demo/mapper/ItemPacMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/capacitacion/demo/mapper/ItemPacMapperImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/capacitacion/demo/mapper/TipoProcedimientoMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/capacitacion/demo/mapper/TipoProcedimientoMapperImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
